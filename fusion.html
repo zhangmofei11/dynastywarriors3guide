@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weapon Fusion Guide - Dynasty Warriors 3 Remastered Guide</title>
+    <meta name="description" content="Master the new Weapon Fusion system in Dynasty Warriors 3: Complete Edition Remastered. Complete fusion recipes, attribute inheritance guide, and tips.">
+    <meta name="keywords" content="Dynasty Warriors 3 weapon fusion, DW3 fusion recipes, weapon fusion guide, DW3 remastered">
+    <link rel="canonical" href="https://dynastywarriors3guide.com/fusion.html">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        gold: { 400: '#F59E0B', 500: '#D97706', 600: '#B45309' },
+                        emerald: { 500: '#10B981', 600: '#059669' }
+                    },
+                    fontFamily: {
+                        'cinzel': ['Cinzel', 'serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background: linear-gradient(180deg, #0f1419 0%, #1a1f2e 100%); min-height: 100vh; }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-4px); box-shadow: 0 10px 40px rgba(245, 158, 11, 0.2); }
+        .fusion-glow { box-shadow: 0 0 30px rgba(245, 158, 11, 0.3); }
+    </style>
+</head>
+<body class="font-inter text-gray-100">
+    <!-- Header -->
+    <header class="bg-gray-900/80 backdrop-blur-md border-b border-gray-800 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="/" class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-emerald-500 to-gold-500 rounded-lg flex items-center justify-center">
+                        <span class="font-cinzel font-bold text-white text-lg">DW</span>
+                    </div>
+                    <span class="font-cinzel font-bold text-xl text-white hidden sm:block">DW3 Guide</span>
+                </a>
+                <nav class="hidden md:flex items-center space-x-6">
+                    <a href="/" class="text-gray-300 hover:text-emerald-400 transition-colors">Home</a>
+                    <a href="weapons.html" class="text-gray-300 hover:text-emerald-400 transition-colors">Weapons</a>
+                    <a href="fusion.html" class="text-gold-400 hover:text-gold-300 transition-colors font-medium">Weapon Fusion</a>
+                    <a href="characters.html" class="text-gray-300 hover:text-emerald-400 transition-colors">Characters</a>
+                </nav>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-900 border-t border-gray-800">
+            <div class="px-4 py-3 space-y-2">
+                <a href="/" class="block text-gray-300 hover:text-emerald-400 py-2">Home</a>
+                <a href="weapons.html" class="block text-gray-300 hover:text-emerald-400 py-2">Weapons</a>
+                <a href="fusion.html" class="block text-gold-400 font-medium py-2">Weapon Fusion</a>
+                <a href="characters.html" class="block text-gray-300 hover:text-emerald-400 py-2">Characters</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <!-- Page Header -->
+        <div class="mb-8">
+            <h1 class="font-cinzel text-4xl font-bold text-white mb-4">Weapon Fusion Guide</h1>
+            <p class="text-gray-400 max-w-3xl">
+                The all-new Weapon Fusion system lets you combine two weapons to transfer elemental properties and skills.
+                Learn how to master fusion recipes and create the ultimate loadout.
+            </p>
+        </div>
+
+        <!-- New Feature Badge -->
+        <div class="bg-gradient-to-r from-gold-900/30 to-emerald-900/30 rounded-xl border border-gold-600/30 p-6 mb-8">
+            <div class="flex items-center mb-4">
+                <span class="px-3 py-1 bg-gold-500/20 text-gold-400 text-sm font-medium rounded-full mr-3">New in Remastered</span>
+                <span class="text-gray-400 text-sm">Complete Edition Exclusive Feature</span>
+            </div>
+            <h2 class="font-cinzel text-2xl font-bold text-white mb-4">What is Weapon Fusion?</h2>
+            <p class="text-gray-300 leading-relaxed">
+                Weapon Fusion is a new system introduced in Dynasty Warriors 3: Complete Edition Remastered.
+                It allows you to combine a <strong class="text-gold-400">Base Weapon</strong> with a
+                <strong class="text-emerald-400">Material Weapon</strong> to create a fused weapon that inherits
+                elemental properties and skills from both weapons.
+            </p>
+        </div>
+
+        <!-- How It Works -->
+        <section class="mb-12">
+            <h2 class="font-cinzel text-3xl font-bold text-white mb-8">How Weapon Fusion Works</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-gray-900/60 rounded-xl border border-gray-700 p-6">
+                    <div class="w-12 h-12 bg-emerald-500/20 rounded-lg flex items-center justify-center mb-4">
+                        <span class="text-emerald-400 font-cinzel font-bold text-xl">1</span>
+                    </div>
+                    <h3 class="font-cinzel text-xl font-bold text-white mb-3">Select Base Weapon</h3>
+                    <p class="text-gray-400 text-sm">
+                        Choose the weapon you want to enhance. This weapon determines the final weapon type,
+                        attack power, and base stats.
+                    </p>
+                </div>
+                <div class="bg-gray-900/60 rounded-xl border border-gray-700 p-6">
+                    <div class="w-12 h-12 bg-gold-500/20 rounded-lg flex items-center justify-center mb-4">
+                        <span class="text-gold-400 font-cinzel font-bold text-xl">2</span>
+                    </div>
+                    <h3 class="font-cinzel text-xl font-bold text-white mb-3">Choose Material Weapon</h3>
+                    <p class="text-gray-400 text-sm">
+                        Select a second weapon as the material. The material weapon's elemental properties
+                        and selected skills will transfer to the base weapon.
+                    </p>
+                </div>
+                <div class="bg-gray-900/60 rounded-xl border border-emerald-600/30 p-6 fusion-glow">
+                    <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-gold-500 rounded-lg flex items-center justify-center mb-4">
+                        <span class="text-white font-cinzel font-bold text-xl">3</span>
+                    </div>
+                    <h3 class="font-cinzel text-xl font-bold text-white mb-3">Fuse & Receive</h3>
+                    <p class="text-gray-400 text-sm">
+                        Confirm the fusion to create your new weapon. The fused weapon will have combined
+                        stats, elements, and skills from both materials.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Attribute Inheritance Rules -->
+        <section class="mb-12">
+            <h2 class="font-cinzel text-3xl font-bold text-white mb-8">Attribute Inheritance Rules</h2>
+            <div class="bg-gray-900/60 rounded-xl border border-gray-700 overflow-hidden">
+                <table class="w-full">
+                    <thead class="bg-gray-800">
+                        <tr>
+                            <th class="px-6 py-4 text-left text-gold-400 font-cinzel font-semibold">Attribute</th>
+                            <th class="px-6 py-4 text-left text-gold-400 font-cinzel font-semibold">Inheritance Behavior</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-700">
+                        <tr>
+                            <td class="px-6 py-4 text-white font-medium">Element</td>
+                            <td class="px-6 py-4 text-gray-300">Inherits element from Material weapon. If Material has no element, Base element is kept.</td>
+                        </tr>
+                        <tr class="bg-gray-900/30">
+                            <td class="px-6 py-4 text-white font-medium">Attack Power</td>
+                            <td class="px-6 py-4 text-gray-300">Calculated as: Base ATK + (Material ATK × 0.5). Rounded down.</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 text-white font-medium">Skills</td>
+                            <td class="px-6 py-4 text-gray-300">Base weapon keeps 1 skill. Material weapon contributes 1 skill randomly.</td>
+                        </tr>
+                        <tr class="bg-gray-900/30">
+                            <td class="px-6 py-4 text-white font-medium">Speed</td>
+                            <td class="px-6 py-4 text-gray-300">Always inherits from Base weapon.</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 text-white font-medium">Range</td>
+                            <td class="px-6 py-4 text-gray-300">Always inherits from Base weapon.</td>
+                        </tr>
+                        <tr class="bg-gray-900/30">
+                            <td class="px-6 py-4 text-white font-medium">Rarity</td>
+                            <td class="px-6 py-4 text-gray-300">Takes the higher rarity between Base and Material weapons.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Fusion Recipes -->
+        <section class="mb-12">
+            <h2 class="font-cinzel text-3xl font-bold text-white mb-8">Fusion Recipes</h2>
+
+            <!-- Search/Filter -->
+            <div class="bg-gray-900/60 rounded-xl border border-gray-700 p-4 mb-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-gray-400 text-sm mb-2">Base Element</label>
+                        <select id="base-element-filter" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 text-white focus:border-emerald-500 focus:outline-none">
+                            <option value="all">All Elements</option>
+                            <option value="fire">Fire</option>
+                            <option value="ice">Ice</option>
+                            <option value="lightning">Lightning</option>
+                            <option value="wind">Wind</option>
+                            <option value="none">No Element</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-gray-400 text-sm mb-2">Material Element</label>
+                        <select id="material-element-filter" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 text-white focus:border-emerald-500 focus:outline-none">
+                            <option value="all">All Elements</option>
+                            <option value="fire">Fire</option>
+                            <option value="ice">Ice</option>
+                            <option value="lightning">Lightning</option>
+                            <option value="wind">Wind</option>
+                            <option value="none">No Element</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recipe Cards -->
+            <div id="recipes-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Recipe 1 -->
+                <div class="fusion-recipe card-hover bg-gray-900/80 rounded-xl border border-gray-700 overflow-hidden"
+                     data-base="fire" data-material="ice">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-medium rounded-full">Recommended</span>
+                            <span class="text-gray-500 text-sm">Attack: +35</span>
+                        </div>
+                        <div class="flex items-center justify-center gap-4 my-6">
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-red-500/20 rounded-lg flex items-center justify-center mb-2 mx-auto">
+                                    <span class="text-2xl">🔥</span>
+                                </div>
+                                <div class="text-white text-sm font-medium">Fire Sword</div>
+                                <div class="text-red-400 text-xs">Fire Element</div>
+                            </div>
+                            <div class="text-gold-400 text-2xl font-bold">+</div>
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-cyan-500/20 rounded-lg flex items-center justify-center mb-2 mx-auto">
+                                    <span class="text-2xl">❄️</span>
+                                </div>
+                                <div class="text-white text-sm font-medium">Ice Spear</div>
+                                <div class="text-cyan-400 text-xs">Ice Element</div>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-gold-400 text-lg font-bold mb-2">→</div>
+                            <div class="w-full bg-gradient-to-r from-red-500/20 via-purple-500/20 to-cyan-500/20 rounded-lg p-4">
+                                <div class="text-white font-cinzel font-bold">Fire + Ice Sword</div>
+                                <div class="flex justify-center gap-2 mt-2">
+                                    <span class="px-2 py-1 bg-red-500/30 text-red-400 text-xs rounded">Fire</span>
+                                    <span class="px-2 py-1 bg-cyan-500/30 text-cyan-400 text-xs rounded">Ice</span>
+                                </div>
+                                <div class="text-gray-400 text-xs mt-2">Skills: Dragon Fury, Ice Strike</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recipe 2 -->
+                <div class="fusion-recipe card-hover bg-gray-900/80 rounded-xl border border-gray-700 overflow-hidden"
+                     data-base="lightning" data-material="fire">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-medium rounded-full">High Damage</span>
+                            <span class="text-gray-500 text-sm">Attack: +40</span>
+                        </div>
+                        <div class="flex items-center justify-center gap-4 my-6">
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-yellow-500/20 rounded-lg flex items-center justify-center mb-2 mx-auto">
+                                    <span class="text-2xl">⚡</span>
+                                </div>
+                                <div class="text-white text-sm font-medium">Lightning Blade</div>
+                                <div class="text-yellow-400 text-xs">Lightning</div>
+                            </div>
+                            <div class="text-gold-400 text-2xl font-bold">+</div>
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-red-500/20 rounded-lg flex items-center justify-center mb-2 mx-auto">
+                                    <span class="text-2xl">🔥</span>
+                                </div>
+                                <div class="text-white text-sm font-medium">Fire Axe</div>
+                                <div class="text-red-400 text-xs">Fire Element</div>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-gold-400 text-lg font-bold mb-2">→</div>
+                            <div class="w-full bg-gradient-to-r from-yellow-500/20 via-orange-500/20 to-red-500/20 rounded-lg p-4">
+                                <div class="text-white font-cinzel font-bold">Thunder Fire Blade</div>
+                                <div class="flex justify-center gap-2 mt-2">
+                                    <span class="px-2 py-1 bg-yellow-500/30 text-yellow-400 text-xs rounded">Lightning</span>
+                                    <span class="px-2 py-1 bg-red-500/30 text-red-400 text-xs rounded">Fire</span>
+                                </div>
+                                <div class="text-gray-400 text-xs mt-2">Skills: Thunder Slash, Flame Cleave</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recipe 3 -->
+                <div class="fusion-recipe card-hover bg-gray-900/80 rounded-xl border border-gray-700 overflow-hidden"
+                     data-base="wind" data-material="lightning">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-medium rounded-full"> Crowd Control</span>
+                            <span class="text-gray-500 text-sm">Attack: +32</span>
+                        </div>
+                        <div class="flex items-center justify-center gap-4 my-6">
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-emerald-500/20 rounded-lg flex items-center justify-center mb-2 mx-auto">
+                                    <span class="text-2xl">🌪️</span>
+                                </div>
+                                <div class="text-white text-sm font-medium">Wind Bow</div>
+                                <div class="text-emerald-400 text-xs">Wind Element</div>
+                            </div>
+                            <div class="text-gold-400 text-2xl font-bold">+</div>
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-yellow-500/20 rounded-lg flex items-center justify-center mb-2 mx-auto">
+                                    <span class="text-2xl">⚡</span>
+                                </div>
+                                <div class="text-white text-sm font-medium">Storm Halberd</div>
+                                <div class="text-yellow-400 text-xs">Lightning</div>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-gold-400 text-lg font-bold mb-2">→</div>
+                            <div class="w-full bg-gradient-to-r from-emerald-500/20 via-teal-500/20 to-yellow-500/20 rounded-lg p-4">
+                                <div class="text-white font-cinzel font-bold">Tempest Bow</div>
+                                <div class="flex justify-center gap-2 mt-2">
+                                    <span class="px-2 py-1 bg-emerald-500/30 text-emerald-400 text-xs rounded">Wind</span>
+                                    <span class="px-2 py-1 bg-yellow-500/30 text-yellow-400 text-xs rounded">Lightning</span>
+                                </div>
+                                <div class="text-gray-400 text-xs mt-2">Skills: Gale Arrow, Chain Lightning</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recipe 4 -->
+                <div class="fusion-recipe card-hover bg-gray-900/80 rounded-xl border border-gray-700 overflow-hidden"
+                     data-base="fire" data-material="wind">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 bg-orange-500/20 text-orange-400 text-xs font-medium rounded-full"> Balanced</span>
+                            <span class="text-gray-500 text-sm">Attack: +28</span>
+                        </div>
+                        <div class="flex items-center justify-center gap-4 my-6">
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-red-500/20 rounded-lg flex items-center justify-center mb-2 mx-auto">
+                                    <span class="text-2xl">🔥</span>
+                                </div>
+                                <div class="text-white text-sm font-medium">Flame Sword</div>
+                                <div class="text-red-400 text-xs">Fire Element</div>
+                            </div>
+                            <div class="text-gold-400 text-2xl font-bold">+</div>
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-emerald-500/20 rounded-lg flex items-center justify-center mb-2 mx-auto">
+                                    <span class="text-2xl">🌪️</span>
+                                </div>
+                                <div class="text-white text-sm font-medium">Wind Naginata</div>
+                                <div class="text-emerald-400 text-xs">Wind Element</div>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-gold-400 text-lg font-bold mb-2">→</div>
+                            <div class="w-full bg-gradient-to-r from-red-500/20 via-yellow-500/20 to-emerald-500/20 rounded-lg p-4">
+                                <div class="text-white font-cinzel font-bold">Inferno Wind Blade</div>
+                                <div class="flex justify-center gap-2 mt-2">
+                                    <span class="px-2 py-1 bg-red-500/30 text-red-400 text-xs rounded">Fire</span>
+                                    <span class="px-2 py-1 bg-emerald-500/30 text-emerald-400 text-xs rounded">Wind</span>
+                                </div>
+                                <div class="text-gray-400 text-xs mt-2">Skills: Fire Aura, Wind Dance</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tips -->
+        <section class="bg-gradient-to-b from-gold-900/10 to-transparent rounded-2xl border border-gold-600/20 p-8">
+            <h2 class="font-cinzel text-2xl font-bold text-gold-400 mb-6">Pro Tips</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="flex items-start">
+                    <div class="w-8 h-8 bg-gold-500/20 rounded-lg flex items-center justify-center mr-3 flex-shrink-0">
+                        <span class="text-gold-400">💡</span>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-medium mb-1">Use High-Rarity Materials</h4>
+                        <p class="text-gray-400 text-sm">Higher rarity weapons contribute more stats when used as fusion materials.</p>
+                    </div>
+                </div>
+                <div class="flex items-start">
+                    <div class="w-8 h-8 bg-gold-500/20 rounded-lg flex items-center justify-center mr-3 flex-shrink-0">
+                        <span class="text-gold-400">🎯</span>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-medium mb-1">Focus on Dual Elements</h4>
+                        <p class="text-gray-400 text-sm">Fused weapons with two elements are more versatile in different battle scenarios.</p>
+                    </div>
+                </div>
+                <div class="flex items-start">
+                    <div class="w-8 h-8 bg-gold-500/20 rounded-lg flex items-center justify-center mr-3 flex-shrink-0">
+                        <span class="text-gold-400">⚔️</span>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-medium mb-1">Keep Base Weapon Skills</h4>
+                        <p class="text-gray-400 text-sm">Always try to keep your favorite weapon's signature skill when fusing.</p>
+                    </div>
+                </div>
+                <div class="flex items-start">
+                    <div class="w-8 h-8 bg-gold-500/20 rounded-lg flex items-center justify-center mr-3 flex-shrink-0">
+                        <span class="text-gold-400">🔄</span>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-medium mb-1">Experiment Freely</h4>
+                        <p class="text-gray-400 text-sm">You can always re-fuse weapons. Don't be afraid to try different combinations.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 py-12 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="flex items-center space-x-3 mb-4 md:mb-0">
+                    <div class="w-10 h-10 bg-gradient-to-br from-emerald-500 to-gold-500 rounded-lg flex items-center justify-center">
+                        <span class="font-cinzel font-bold text-white text-lg">DW</span>
+                    </div>
+                    <span class="font-cinzel font-bold text-xl text-white">DW3 Guide</span>
+                </div>
+                <div class="flex space-x-6 text-sm text-gray-400">
+                    <a href="/" class="hover:text-emerald-400">Home</a>
+                    <a href="weapons.html" class="hover:text-emerald-400">Weapons</a>
+                    <a href="fusion.html" class="hover:text-emerald-400">Weapon Fusion</a>
+                    <a href="characters.html" class="hover:text-emerald-400">Characters</a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500 text-sm">
+                <p>&copy; 2026 Dynasty Warriors 3 Guide. Not affiliated with KOEI TECMO.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+        // Filter recipes
+        const baseFilter = document.getElementById('base-element-filter');
+        const materialFilter = document.getElementById('material-element-filter');
+        const recipes = document.querySelectorAll('.fusion-recipe');
+
+        function filterRecipes() {
+            const base = baseFilter.value;
+            const material = materialFilter.value;
+
+            recipes.forEach(recipe => {
+                const recipeBase = recipe.dataset.base;
+                const recipeMaterial = recipe.dataset.material;
+
+                const baseMatch = base === 'all' || recipeBase === base;
+                const materialMatch = material === 'all' || recipeMaterial === material;
+
+                if (baseMatch && materialMatch) {
+                    recipe.classList.remove('hidden');
+                } else {
+                    recipe.classList.add('hidden');
+                }
+            });
+        }
+
+        baseFilter.addEventListener('change', filterRecipes);
+        materialFilter.addEventListener('change', filterRecipes);
+    </script>
+</body>
+</html>

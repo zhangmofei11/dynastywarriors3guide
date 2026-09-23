@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynasty Warriors 3 Remastered - Complete Guide & Weapons Database</title>
+    <meta name="description" content="Your ultimate guide to Dynasty Warriors 3: Complete Edition Remastered. Complete weapons database, fusion recipes, character guides, and everything you need to know about DW3 Remastered.">
+    <meta name="keywords" content="Dynasty Warriors 3, DW3, DW3 Remastered, Dynasty Warriors 3 Remastered, weapons guide, character guide">
+    <link rel="canonical" href="https://dynastywarriors3guide.com/">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            400: '#F59E0B',
+                            500: '#D97706',
+                            600: '#B45309',
+                        },
+                        emerald: {
+                            500: '#10B981',
+                            600: '#059669',
+                        }
+                    },
+                    fontFamily: {
+                        'cinzel': ['Cinzel', 'serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background: linear-gradient(180deg, #0f1419 0%, #1a1f2e 100%);
+            min-height: 100vh;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(245, 158, 11, 0.1) 100%);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 40px rgba(16, 185, 129, 0.2);
+        }
+        .gold-border {
+            border-image: linear-gradient(135deg, #F59E0B, #D97706) 1;
+        }
+    </style>
+</head>
+<body class="font-inter text-gray-100">
+    <!-- Header -->
+    <header class="bg-gray-900/80 backdrop-blur-md border-b border-gray-800 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <a href="/" class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-emerald-500 to-gold-500 rounded-lg flex items-center justify-center">
+                        <span class="font-cinzel font-bold text-white text-lg">DW</span>
+                    </div>
+                    <span class="font-cinzel font-bold text-xl text-white hidden sm:block">DW3 Guide</span>
+                </a>
+                <!-- Navigation -->
+                <nav class="hidden md:flex items-center space-x-6">
+                    <a href="/" class="text-emerald-400 hover:text-emerald-300 transition-colors font-medium">Home</a>
+                    <a href="weapons.html" class="text-gray-300 hover:text-emerald-400 transition-colors">Weapons</a>
+                    <a href="fusion.html" class="text-gray-300 hover:text-emerald-400 transition-colors">Weapon Fusion</a>
+                    <a href="characters.html" class="text-gray-300 hover:text-emerald-400 transition-colors">Characters</a>
+                </nav>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-900 border-t border-gray-800">
+            <div class="px-4 py-3 space-y-2">
+                <a href="/" class="block text-emerald-400 font-medium py-2">Home</a>
+                <a href="weapons.html" class="block text-gray-300 hover:text-emerald-400 py-2">Weapons</a>
+                <a href="fusion.html" class="block text-gray-300 hover:text-emerald-400 py-2">Weapon Fusion</a>
+                <a href="characters.html" class="block text-gray-300 hover:text-emerald-400 py-2">Characters</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-gradient py-16 lg:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h1 class="font-cinzel text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
+                        Dynasty Warriors 3
+                        <span class="block text-3xl md:text-4xl text-gold-400">Complete Edition Remastered</span>
+                    </h1>
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                        Your ultimate guide to the remastered classic. Complete weapons database, fusion recipes, character guides, and expert tips.
+                    </p>
+                    <div class="mt-8 flex flex-wrap justify-center gap-4">
+                        <a href="#quick-facts" class="px-8 py-3 bg-gradient-to-r from-emerald-600 to-emerald-500 text-white font-semibold rounded-lg hover:from-emerald-500 hover:to-emerald-400 transition-all shadow-lg shadow-emerald-500/30">
+                            Get Started
+                        </a>
+                        <a href="weapons.html" class="px-8 py-3 bg-gradient-to-r from-gold-600 to-gold-500 text-white font-semibold rounded-lg hover:from-gold-500 hover:to-gold-400 transition-all shadow-lg shadow-gold-500/30">
+                            Browse Weapons
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Facts -->
+                <div id="quick-facts" class="bg-gray-900/60 rounded-2xl border border-gray-700 p-6 md:p-8 mt-12">
+                    <h2 class="font-cinzel text-2xl font-bold text-gold-400 mb-6 flex items-center">
+                        <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+                        </svg>
+                        Quick Facts
+                    </h2>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                        <div class="text-center">
+                            <div class="text-gray-400 text-sm mb-1">Developer</div>
+                            <div class="text-white font-semibold">KOEI TECMO</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-gray-400 text-sm mb-1">Genre</div>
+                            <div class="text-white font-semibold">Action / Hack and Slash</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-gray-400 text-sm mb-1">Platform</div>
+                            <div class="text-white font-semibold">PC (Steam)</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-gray-400 text-sm mb-1">Release</div>
+                            <div class="text-emerald-400 font-semibold">October 1, 2026</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-gray-400 text-sm mb-1">Engine</div>
+                            <div class="text-white font-semibold">Unreal Engine 5</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-gray-400 text-sm mb-1">Players</div>
+                            <div class="text-white font-semibold">Single / Co-op</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-gray-400 text-sm mb-1">Price</div>
+                            <div class="text-white font-semibold">TBA</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-gray-400 text-sm mb-1">Content</div>
+                            <div class="text-white font-semibold">Base + Xtreme Legends</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Navigation Cards -->
+        <section class="py-16 bg-gray-900/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="font-cinzel text-3xl font-bold text-white text-center mb-12">
+                    Explore the Guide
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Weapons Card -->
+                    <a href="weapons.html" class="card-hover bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl border border-gray-700 p-6 block">
+                        <div class="w-14 h-14 bg-emerald-500/20 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-8 h-8 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-cinzel text-xl font-bold text-white mb-2">Weapons Database</h3>
+                        <p class="text-gray-400 text-sm">Complete weapon list with stats, attributes, skills, and acquisition methods.</p>
+                        <div class="mt-4 text-emerald-400 text-sm font-medium flex items-center">
+                            View All Weapons
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </div>
+                    </a>
+
+                    <!-- Fusion Card -->
+                    <a href="fusion.html" class="card-hover bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl border border-gray-700 p-6 block">
+                        <div class="w-14 h-14 bg-gold-500/20 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-8 h-8 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-cinzel text-xl font-bold text-white mb-2">Weapon Fusion</h3>
+                        <p class="text-gray-400 text-sm">Master the new Weapon Fusion system. Complete recipes and attribute inheritance guide.</p>
+                        <div class="mt-4 text-gold-400 text-sm font-medium flex items-center">
+                            View Fusion Guide
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </div>
+                    </a>
+
+                    <!-- Characters Card -->
+                    <a href="characters.html" class="card-hover bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl border border-gray-700 p-6 block">
+                        <div class="w-14 h-14 bg-purple-500/20 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-cinzel text-xl font-bold text-white mb-2">Characters</h3>
+                        <p class="text-gray-400 text-sm">40+ playable officers. Stats, weapons, skills, and unlock methods for all officers.</p>
+                        <div class="mt-4 text-purple-400 text-sm font-medium flex items-center">
+                            View All Characters
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </div>
+                    </a>
+
+                    <!-- New Features Card -->
+                    <div class="card-hover bg-gradient-to-br from-emerald-900/50 to-gray-900 rounded-xl border border-emerald-600/50 p-6">
+                        <div class="w-14 h-14 bg-emerald-500/30 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-8 h-8 text-emerald-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-cinzel text-xl font-bold text-white mb-2">New in Remastered</h3>
+                        <p class="text-gray-400 text-sm">Discover all new features: Weapon Fusion, Just Evasion, Perfect Power Guard, and more.</p>
+                        <ul class="mt-4 space-y-2 text-sm text-gray-300">
+                            <li class="flex items-center">
+                                <span class="w-2 h-2 bg-emerald-400 rounded-full mr-2"></span>
+                                Weapon Fusion System
+                            </li>
+                            <li class="flex items-center">
+                                <span class="w-2 h-2 bg-emerald-400 rounded-full mr-2"></span>
+                                Just Evasion
+                            </li>
+                            <li class="flex items-center">
+                                <span class="w-2 h-2 bg-emerald-400 rounded-full mr-2"></span>
+                                Perfect Power Guard
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Weapons -->
+        <section class="py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between mb-8">
+                    <h2 class="font-cinzel text-3xl font-bold text-white">Featured Weapons</h2>
+                    <a href="weapons.html" class="text-emerald-400 hover:text-emerald-300 font-medium flex items-center">
+                        View All
+                        <svg class="w-5 h-5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Weapon Card 1 -->
+                    <div class="card-hover bg-gray-800/80 rounded-xl border border-gray-700 overflow-hidden">
+                        <div class="h-32 bg-gradient-to-br from-emerald-600/20 to-gold-600/20 flex items-center justify-center">
+                            <svg class="w-16 h-16 text-emerald-400/50" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M14.5 2.5L2.5 14.5l3 3L17.5 5.5l-3-3zM22 22l-3-3 2.5-2.5L24.5 19l-2.5 3z"/>
+                            </svg>
+                        </div>
+                        <div class="p-4">
+                            <div class="text-xs text-gold-400 uppercase tracking-wide mb-1">Sword</div>
+                            <h3 class="font-semibold text-white mb-2">Dragon Sword</h3>
+                            <div class="flex flex-wrap gap-2 mb-3">
+                                <span class="px-2 py-1 bg-blue-500/20 text-blue-400 text-xs rounded">Fire</span>
+                                <span class="px-2 py-1 bg-purple-500/20 text-purple-400 text-xs rounded">+20 ATK</span>
+                            </div>
+                            <p class="text-gray-400 text-xs">Balanced blade with high critical rate. Found in Musou Mode.</p>
+                        </div>
+                    </div>
+
+                    <!-- Weapon Card 2 -->
+                    <div class="card-hover bg-gray-800/80 rounded-xl border border-gray-700 overflow-hidden">
+                        <div class="h-32 bg-gradient-to-br from-blue-600/20 to-purple-600/20 flex items-center justify-center">
+                            <svg class="w-16 h-16 text-blue-400/50" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2L4 7v10l8 5 8-5V7l-8-5z"/>
+                            </svg>
+                        </div>
+                        <div class="p-4">
+                            <div class="text-xs text-gold-400 uppercase tracking-wide mb-1">Spear</div>
+                            <h3 class="font-semibold text-white mb-2">Serpent Spear</h3>
+                            <div class="flex flex-wrap gap-2 mb-3">
+                                <span class="px-2 py-1 bg-cyan-500/20 text-cyan-400 text-xs rounded">Ice</span>
+                                <span class="px-2 py-1 bg-purple-500/20 text-purple-400 text-xs rounded">+15 ATK</span>
+                            </div>
+                            <p class="text-gray-400 text-xs">Long reach with area damage. Reward from Guan Yu's stage.</p>
+                        </div>
+                    </div>
+
+                    <!-- Weapon Card 3 -->
+                    <div class="card-hover bg-gray-800/80 rounded-xl border border-gray-700 overflow-hidden">
+                        <div class="h-32 bg-gradient-to-br from-red-600/20 to-orange-600/20 flex items-center justify-center">
+                            <svg class="w-16 h-16 text-red-400/50" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2l3 6 6 1-4 4 1 7-6-3-6 3 1-7-4-4 6-1z"/>
+                            </svg>
+                        </div>
+                        <div class="p-4">
+                            <div class="text-xs text-gold-400 uppercase tracking-wide mb-1">Halberd</div>
+                            <h3 class="font-semibold text-white mb-2">Sky Melder</h3>
+                            <div class="flex flex-wrap gap-2 mb-3">
+                                <span class="px-2 py-1 bg-yellow-500/20 text-yellow-400 text-xs rounded">Lightning</span>
+                                <span class="px-2 py-1 bg-purple-500/20 text-purple-400 text-xs rounded">+25 ATK</span>
+                            </div>
+                            <p class="text-gray-400 text-xs">Heavy halberd with AoE attacks. Fusion recipe available.</p>
+                        </div>
+                    </div>
+
+                    <!-- Weapon Card 4 -->
+                    <div class="card-hover bg-gray-800/80 rounded-xl border border-gray-700 overflow-hidden">
+                        <div class="h-32 bg-gradient-to-br from-green-600/20 to-teal-600/20 flex items-center justify-center">
+                            <svg class="w-16 h-16 text-green-400/50" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            </svg>
+                        </div>
+                        <div class="p-4">
+                            <div class="text-xs text-gold-400 uppercase tracking-wide mb-1">Bow</div>
+                            <h3 class="font-semibold text-white mb-2">Wind Bow</h3>
+                            <div class="flex flex-wrap gap-2 mb-3">
+                                <span class="px-2 py-1 bg-emerald-500/20 text-emerald-400 text-xs rounded">Wind</span>
+                                <span class="px-2 py-1 bg-purple-500/20 text-purple-400 text-xs rounded">+12 ATK</span>
+                            </div>
+                            <p class="text-gray-400 text-xs">Fast attack speed. Perfect for hit-and-run tactics.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Weapon Fusion Preview -->
+        <section class="py-16 bg-gradient-to-b from-emerald-900/20 to-transparent">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="font-cinzel text-3xl font-bold text-white mb-4">Weapon Fusion System</h2>
+                    <p class="text-gray-400 max-w-2xl mx-auto">
+                        The all-new Weapon Fusion system lets you combine weapons to transfer elemental properties and skills.
+                        Master the recipes to create the ultimate loadout.
+                    </p>
+                </div>
+                <div class="bg-gray-900/80 rounded-2xl border border-emerald-600/30 p-8 max-w-4xl mx-auto">
+                    <div class="grid md:grid-cols-3 gap-6 items-center">
+                        <div class="text-center p-4 bg-gray-800/50 rounded-xl">
+                            <div class="text-gold-400 text-sm font-medium mb-2">Base Weapon</div>
+                            <div class="w-16 h-16 mx-auto bg-emerald-500/20 rounded-lg flex items-center justify-center mb-2">
+                                <svg class="w-8 h-8 text-emerald-400" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M14.5 2.5L2.5 14.5l3 3L17.5 5.5l-3-3z"/>
+                                </svg>
+                            </div>
+                            <div class="text-white text-sm">Dragon Sword</div>
+                            <div class="text-gray-400 text-xs">Fire Element</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-12 h-12 mx-auto bg-gold-500/20 rounded-full flex items-center justify-center">
+                                <svg class="w-6 h-6 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+                                </svg>
+                            </div>
+                            <div class="text-gold-400 text-sm font-medium mt-2">+</div>
+                            <div class="text-gold-400 text-sm">Fuse</div>
+                        </div>
+                        <div class="text-center p-4 bg-gray-800/50 rounded-xl">
+                            <div class="text-gold-400 text-sm font-medium mb-2">Material Weapon</div>
+                            <div class="w-16 h-16 mx-auto bg-blue-500/20 rounded-lg flex items-center justify-center mb-2">
+                                <svg class="w-8 h-8 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2L4 7v10l8 5 8-5V7l-8-5z"/>
+                                </svg>
+                            </div>
+                            <div class="text-white text-sm">Ice Spear</div>
+                            <div class="text-gray-400 text-xs">Ice Element</div>
+                        </div>
+                    </div>
+                    <div class="mt-8 text-center">
+                        <div class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-emerald-600 to-emerald-500 rounded-lg">
+                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span class="text-white font-semibold">Result: Dragon Sword (Fire + Ice)</span>
+                        </div>
+                    </div>
+                    <div class="mt-6 text-center">
+                        <a href="fusion.html" class="text-emerald-400 hover:text-emerald-300 font-medium inline-flex items-center">
+                            View Complete Fusion Recipes
+                            <svg class="w-5 h-5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Characters Overview -->
+        <section class="py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between mb-8">
+                    <h2 class="font-cinzel text-3xl font-bold text-white">Featured Characters</h2>
+                    <a href="characters.html" class="text-purple-400 hover:text-purple-300 font-medium flex items-center">
+                        View All 40+ Officers
+                        <svg class="w-5 h-5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                    <!-- Wei Officers -->
+                    <div class="card-hover bg-gray-800/80 rounded-xl border border-gray-700 p-4 text-center">
+                        <div class="w-12 h-12 mx-auto bg-blue-600/30 rounded-full flex items-center justify-center mb-3">
+                            <span class="text-blue-400 font-bold">曹</span>
+                        </div>
+                        <h4 class="font-semibold text-white text-sm">Cao Cao</h4>
+                        <p class="text-gray-400 text-xs">Wei</p>
+                    </div>
+                    <div class="card-hover bg-gray-800/80 rounded-xl border border-gray-700 p-4 text-center">
+                        <div class="w-12 h-12 mx-auto bg-blue-600/30 rounded-full flex items-center justify-center mb-3">
+                            <span class="text-blue-400 font-bold">夏</span>
+                        </div>
+                        <h4 class="font-semibold text-white text-sm">Xiahou Dun</h4>
+                        <p class="text-gray-400 text-xs">Wei</p>
+                    </div>
+                    <div class="card-hover bg-gray-800/80 rounded-xl border border-gray-700 p-4 text-center">
+                        <div class="w-12 h-12 mx-auto bg-blue-600/30 rounded-full flex items-center justify-center mb-3">
+                            <span class="text-blue-400 font-bold">典</span>
+                        </div>
+                        <h4 class="font-semibold text-white text-sm">Dian Wei</h4>
+                        <p class="text-gray-400 text-xs">Wei</p>
+                    </div>
+                    <!-- Shu Officers -->
+                    <div class="card-hover bg-gray-800/80 rounded-xl border border-gray-700 p-4 text-center">
+                        <div class="w-12 h-12 mx-auto bg-green-600/30 rounded-full flex items-center justify-center mb-3">
+                            <span class="text-green-400 font-bold">刘</span>
+                        </div>
+                        <h4 class="font-semibold text-white text-sm">Liu Bei</h4>
+                        <p class="text-gray-400 text-xs">Shu</p>
+                    </div>
+                    <div class="card-hover bg-gray-800/80 rounded-xl border border-gray-700 p-4 text-center">
+                        <div class="w-12 h-12 mx-auto bg-green-600/30 rounded-full flex items-center justify-center mb-3">
+                            <span class="text-green-400 font-bold">关</span>
+                        </div>
+                        <h4 class="font-semibold text-white text-sm">Guan Yu</h4>
+                        <p class="text-gray-400 text-xs">Shu</p>
+                    </div>
+                    <div class="card-hover bg-gray-800/80 rounded-xl border border-gray-700 p-4 text-center">
+                        <div class="w-12 h-12 mx-auto bg-green-600/30 rounded-full flex items-center justify-center mb-3">
+                            <span class="text-green-400 font-bold">张</span>
+                        </div>
+                        <h4 class="font-semibold text-white text-sm">Zhang Fei</h4>
+                        <p class="text-gray-400 text-xs">Shu</p>
+                    </div>
+                    <!-- Wu Officers -->
+                    <div class="card-hover bg-gray-800/80 rounded-xl border border-gray-700 p-4 text-center">
+                        <div class="w-12 h-12 mx-auto bg-red-600/30 rounded-full flex items-center justify-center mb-3">
+                            <span class="text-red-400 font-bold">孙</span>
+                        </div>
+                        <h4 class="font-semibold text-white text-sm">Sun Quan</h4>
+                        <p class="text-gray-400 text-xs">Wu</p>
+                    </div>
+                    <div class="card-hover bg-gray-800/80 rounded-xl border border-gray-700 p-4 text-center">
+                        <div class="w-12 h-12 mx-auto bg-red-600/30 rounded-full flex items-center justify-center mb-3">
+                            <span class="text-red-400 font-bold">周</span>
+                        </div>
+                        <h4 class="font-semibold text-white text-sm">Zhou Yu</h4>
+                        <p class="text-gray-400 text-xs">Wu</p>
+                    </div>
+                    <div class="card-hover bg-gray-800/80 rounded-xl border border-gray-700 p-4 text-center">
+                        <div class="w-12 h-12 mx-auto bg-red-600/30 rounded-full flex items-center justify-center mb-3">
+                            <span class="text-red-400 font-bold">陆</span>
+                        </div>
+                        <h4 class="font-semibold text-white text-sm">Lu Xun</h4>
+                        <p class="text-gray-400 text-xs">Wu</p>
+                    </div>
+                    <!-- Other Officers -->
+                    <div class="card-hover bg-gray-800/80 rounded-xl border border-gray-700 p-4 text-center">
+                        <div class="w-12 h-12 mx-auto bg-purple-600/30 rounded-full flex items-center justify-center mb-3">
+                            <span class="text-purple-400 font-bold">吕</span>
+                        </div>
+                        <h4 class="font-semibold text-white text-sm">Lu Bu</h4>
+                        <p class="text-gray-400 text-xs">Other</p>
+                    </div>
+                    <div class="card-hover bg-gray-800/80 rounded-xl border border-gray-700 p-4 text-center">
+                        <div class="w-12 h-12 mx-auto bg-purple-600/30 rounded-full flex items-center justify-center mb-3">
+                            <span class="text-purple-400 font-bold">董</span>
+                        </div>
+                        <h4 class="font-semibold text-white text-sm">Dong Zhuo</h4>
+                        <p class="text-gray-400 text-xs">Other</p>
+                    </div>
+                    <div class="card-hover bg-gray-800/80 rounded-xl border border-gray-700 p-4 text-center">
+                        <div class="w-12 h-12 mx-auto bg-purple-600/30 rounded-full flex items-center justify-center mb-3">
+                            <span class="text-purple-400 font-bold">袁</span>
+                        </div>
+                        <h4 class="font-semibold text-white text-sm">Yuan Shao</h4>
+                        <p class="text-gray-400 text-xs">Other</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-10 h-10 bg-gradient-to-br from-emerald-500 to-gold-500 rounded-lg flex items-center justify-center">
+                            <span class="font-cinzel font-bold text-white text-lg">DW</span>
+                        </div>
+                        <span class="font-cinzel font-bold text-xl text-white">DW3 Guide</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">
+                        Your ultimate guide to Dynasty Warriors 3: Complete Edition Remastered.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="weapons.html" class="text-gray-400 hover:text-emerald-400">Weapons Database</a></li>
+                        <li><a href="fusion.html" class="text-gray-400 hover:text-emerald-400">Weapon Fusion</a></li>
+                        <li><a href="characters.html" class="text-gray-400 hover:text-emerald-400">Characters</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Resources</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-gray-400 hover:text-emerald-400">Game Official Site</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-emerald-400">Steam Page</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-emerald-400">KOEI TECMO</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-gray-400 hover:text-emerald-400">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-emerald-400">Terms of Use</a></li>
+                        <li class="text-gray-500 text-xs mt-4">Not affiliated with KOEI TECMO.</p></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
+                <p>&copy; 2026 Dynasty Warriors 3 Guide. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
