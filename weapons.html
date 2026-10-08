@@ -3,22 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Weapons Database - Dynasty Warriors 3 Remastered Guide</title>
+    <title>Weapons Database - Dynasty Warriors 3 Remastered Guide</title>
     <meta name="description" content="Complete weapons database for Dynasty Warriors 3: Complete Edition Remastered. Browse all weapon types, stats, attributes, skills, and acquisition methods.">
     <meta name="keywords" content="Dynasty Warriors 3 weapons, DW3 weapons database, weapon types, weapon stats, DW3 remastered">
     <link rel="canonical" href="https://dynastywarriors3guide.com/weapons.html">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
-                        gold: { 400: '#F59E0B', 500: '#D97706', 600: '#B45309' },
-                        emerald: { 500: '#10B981', 600: '#059669' }
+                        gold: {
+                            300: '#FCD34D',
+                            400: '#FBBF24',
+                            500: '#F59E0B',
+                            600: '#D97706',
+                        },
+                        obsidian: {
+                            900: '#0a0a0f',
+                            800: '#12121a',
+                            700: '#1a1a25',
+                            600: '#252535',
+                        }
                     },
                     fontFamily: {
                         'cinzel': ['Cinzel', 'serif'],
@@ -37,61 +47,173 @@
       gtag('config', 'G-J2316S2WD9');
     </script>
     <style>
-        body { background: linear-gradient(180deg, #0f1419 0%, #1a1f2e 100%); min-height: 100vh; }
-        .card-hover { transition: all 0.3s ease; }
-        .card-hover:hover { transform: translateY(-4px); box-shadow: 0 10px 40px rgba(16, 185, 129, 0.2); }
+        * { box-sizing: border-box; }
+        body {
+            background: radial-gradient(ellipse at top, #1a1a2e 0%, #0a0a0f 50%, #050508 100%);
+            min-height: 100vh;
+            font-family: 'Inter', sans-serif;
+        }
+        .glass {
+            background: rgba(18, 18, 26, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .glass-card {
+            background: linear-gradient(135deg, rgba(26, 26, 37, 0.9) 0%, rgba(18, 18, 26, 0.9) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: rgba(245, 158, 11, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 60px rgba(245, 158, 11, 0.1);
+        }
+        .text-gradient-gold {
+            background: linear-gradient(135deg, #FCD34D 0%, #F59E0B 50%, #D97706 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .stat-card {
+            background: linear-gradient(135deg, rgba(26, 26, 37, 0.8) 0%, rgba(18, 18, 26, 0.8) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .weapon-card {
+            background: linear-gradient(180deg, rgba(26, 26, 37, 0.95) 0%, rgba(10, 10, 15, 0.95) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .weapon-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--card-accent, #F59E0B), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .weapon-card:hover::before {
+            opacity: 1;
+        }
+        .filter-select {
+            background: rgba(18, 18, 26, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        .filter-select:focus {
+            border-color: rgba(245, 158, 11, 0.5);
+            box-shadow: 0 0 20px rgba(245, 158, 11, 0.2);
+            outline: none;
+        }
+        .filter-select:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        .rarity-legendary { --card-accent: #F59E0B; }
+        .rarity-epic { --card-accent: #A855F7; }
+        .rarity-rare { --card-accent: #3B82F6; }
+        .rarity-common { --card-accent: #6B7280; }
+        .element-fire { --card-accent: #EF4444; }
+        .element-ice { --card-accent: #06B6D4; }
+        .element-lightning { --card-accent: #EAB308; }
+        .element-wind { --card-accent: #10B981; }
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(245, 158, 11, 0.3), transparent);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.2) 0%, rgba(245, 158, 11, 0.1) 100%);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.3) 0%, rgba(245, 158, 11, 0.2) 100%);
+            border-color: rgba(245, 158, 11, 0.5);
+            box-shadow: 0 4px 20px rgba(245, 158, 11, 0.2);
+        }
     </style>
 </head>
-<body class="font-inter text-gray-100">
+<body class="text-gray-100 antialiased">
     <!-- Header -->
-    <header class="bg-gray-900/80 backdrop-blur-md border-b border-gray-800 sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <a href="/" class="flex items-center space-x-3">
-                    <div class="w-10 h-10 bg-gradient-to-br from-emerald-500 to-gold-500 rounded-lg flex items-center justify-center">
-                        <span class="font-cinzel font-bold text-white text-lg">DW</span>
+    <header class="glass sticky top-0 z-50 border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex items-center justify-between h-20">
+                <a href="/" class="flex items-center space-x-4 group">
+                    <div class="w-12 h-12 bg-gradient-to-br from-gold-500 to-gold-600 rounded-xl flex items-center justify-center shadow-lg shadow-gold-500/20">
+                        <span class="font-cinzel font-bold text-black text-lg">DW</span>
                     </div>
-                    <span class="font-cinzel font-bold text-xl text-white hidden sm:block">DW3 Guide</span>
+                    <div>
+                        <span class="font-cinzel font-bold text-xl text-white tracking-wide">DW3 Guide</span>
+                        <span class="block text-xs text-gold-500/70">Complete Remastered</span>
+                    </div>
                 </a>
-                <nav class="hidden md:flex items-center space-x-6">
-                    <a href="/" class="text-gray-300 hover:text-emerald-400 transition-colors">Home</a>
-                    <a href="weapons.html" class="text-emerald-400 hover:text-emerald-300 transition-colors font-medium">Weapons</a>
-                    <a href="fusion.html" class="text-gray-300 hover:text-emerald-400 transition-colors">Weapon Fusion</a>
-                    <a href="characters.html" class="text-gray-300 hover:text-emerald-400 transition-colors">Characters</a>
+                <nav class="hidden lg:flex items-center space-x-1">
+                    <a href="/" class="px-5 py-2 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-all">Home</a>
+                    <a href="weapons.html" class="px-5 py-2 text-gold-400 bg-gold-500/10 rounded-lg border border-gold-500/30 font-medium">Weapons</a>
+                    <a href="fusion.html" class="px-5 py-2 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-all">Fusion</a>
+                    <a href="characters.html" class="px-5 py-2 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-all">Characters</a>
+                    <a href="musou-modes.html" class="px-5 py-2 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-all">Modes</a>
+                    <a href="tips.html" class="px-5 py-2 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-all">Tips</a>
                 </nav>
-                <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-white">
+                <button id="mobile-menu-btn" class="lg:hidden p-3 text-gray-400 hover:text-white hover:bg-white/5 rounded-lg transition-all">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
                     </svg>
                 </button>
             </div>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-gray-900 border-t border-gray-800">
-            <div class="px-4 py-3 space-y-2">
-                <a href="/" class="block text-gray-300 hover:text-emerald-400 py-2">Home</a>
-                <a href="weapons.html" class="block text-emerald-400 font-medium py-2">Weapons</a>
-                <a href="fusion.html" class="block text-gray-300 hover:text-emerald-400 py-2">Weapon Fusion</a>
-                <a href="characters.html" class="block text-gray-300 hover:text-emerald-400 py-2">Characters</a>
+        <div id="mobile-menu" class="hidden lg:hidden bg-obsidian-800 border-t border-white/5">
+            <div class="px-6 py-4 space-y-2">
+                <a href="/" class="block px-4 py-3 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg">Home</a>
+                <a href="weapons.html" class="block px-4 py-3 text-gold-400 bg-gold-500/10 rounded-lg">Weapons</a>
+                <a href="fusion.html" class="block px-4 py-3 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg">Fusion</a>
+                <a href="characters.html" class="block px-4 py-3 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg">Characters</a>
             </div>
         </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <main class="max-w-7xl mx-auto px-6 py-12">
         <!-- Page Header -->
-        <div class="mb-8">
-            <h1 class="font-cinzel text-4xl font-bold text-white mb-4">Weapons Database</h1>
-            <p class="text-gray-400 max-w-3xl">
-                Complete guide to all weapons in Dynasty Warriors 3: Complete Edition Remastered.
-                Browse by type, element, or browse the full database.
+        <div class="text-center mb-12">
+            <h1 class="font-cinzel text-4xl md:text-5xl font-bold text-white mb-4">
+                Weapons <span class="text-gradient-gold">Database</span>
+            </h1>
+            <p class="text-gray-400 max-w-2xl mx-auto text-lg">
+                Complete guide to all weapons in Dynasty Warriors 3 Remastered.
+                Browse by type, element, or explore the full arsenal.
             </p>
         </div>
 
+        <!-- Stats Summary -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+            <div class="stat-card rounded-xl p-5 text-center">
+                <div class="text-gold-400 font-cinzel text-3xl font-bold mb-1">48</div>
+                <div class="text-gray-500 text-sm">Total Weapons</div>
+            </div>
+            <div class="stat-card rounded-xl p-5 text-center">
+                <div class="text-emerald-400 font-cinzel text-3xl font-bold mb-1">8</div>
+                <div class="text-gray-500 text-sm">Weapon Types</div>
+            </div>
+            <div class="stat-card rounded-xl p-5 text-center">
+                <div class="text-blue-400 font-cinzel text-3xl font-bold mb-1">4</div>
+                <div class="text-gray-500 text-sm">Elements</div>
+            </div>
+            <div class="stat-card rounded-xl p-5 text-center">
+                <div class="text-purple-400 font-cinzel text-3xl font-bold mb-1">12</div>
+                <div class="text-gray-500 text-sm">Legendary</div>
+            </div>
+        </div>
+
         <!-- Filters -->
-        <div class="bg-gray-900/60 rounded-xl border border-gray-700 p-6 mb-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="glass-card rounded-2xl p-6 mb-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div>
-                    <label class="block text-gray-400 text-sm mb-2">Weapon Type</label>
-                    <select id="type-filter" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 text-white focus:border-emerald-500 focus:outline-none">
+                    <label class="block text-gray-400 text-sm mb-3 font-medium">Weapon Type</label>
+                    <select id="type-filter" class="filter-select w-full px-4 py-3 rounded-xl text-white">
                         <option value="all">All Types</option>
                         <option value="sword">Sword</option>
                         <option value="spear">Spear</option>
@@ -103,8 +225,8 @@
                     </select>
                 </div>
                 <div>
-                    <label class="block text-gray-400 text-sm mb-2">Element</label>
-                    <select id="element-filter" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 text-white focus:border-emerald-500 focus:outline-none">
+                    <label class="block text-gray-400 text-sm mb-3 font-medium">Element</label>
+                    <select id="element-filter" class="filter-select w-full px-4 py-3 rounded-xl text-white">
                         <option value="all">All Elements</option>
                         <option value="fire">Fire</option>
                         <option value="ice">Ice</option>
@@ -114,372 +236,450 @@
                     </select>
                 </div>
                 <div>
-                    <label class="block text-gray-400 text-sm mb-2">Rarity</label>
-                    <select id="rarity-filter" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 text-white focus:border-emerald-500 focus:outline-none">
+                    <label class="block text-gray-400 text-sm mb-3 font-medium">Rarity</label>
+                    <select id="rarity-filter" class="filter-select w-full px-4 py-3 rounded-xl text-white">
                         <option value="all">All Rarities</option>
-                        <option value="common">Common</option>
-                        <option value="rare">Rare</option>
-                        <option value="epic">Epic</option>
                         <option value="legendary">Legendary</option>
+                        <option value="epic">Epic</option>
+                        <option value="rare">Rare</option>
+                        <option value="common">Common</option>
                     </select>
                 </div>
             </div>
         </div>
 
-        <!-- Stats Summary -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-            <div class="bg-gray-900/60 rounded-xl border border-gray-700 p-4 text-center">
-                <div class="text-3xl font-bold text-emerald-400">48</div>
-                <div class="text-gray-400 text-sm">Total Weapons</div>
-            </div>
-            <div class="bg-gray-900/60 rounded-xl border border-gray-700 p-4 text-center">
-                <div class="text-3xl font-bold text-gold-400">8</div>
-                <div class="text-gray-400 text-sm">Weapon Types</div>
-            </div>
-            <div class="bg-gray-900/60 rounded-xl border border-gray-700 p-4 text-center">
-                <div class="text-3xl font-bold text-blue-400">4</div>
-                <div class="text-gray-400 text-sm">Elements</div>
-            </div>
-            <div class="bg-gray-900/60 rounded-xl border border-gray-700 p-4 text-center">
-                <div class="text-3xl font-bold text-purple-400">12</div>
-                <div class="text-gray-400 text-sm">Legendary Weapons</div>
-            </div>
-        </div>
-
         <!-- Weapons Grid -->
         <div id="weapons-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            <!-- Sword -->
-            <div class="weapon-card card-hover bg-gray-800/80 rounded-xl border border-gray-700 overflow-hidden" data-type="sword" data-element="fire" data-rarity="legendary">
-                <div class="h-40 bg-gradient-to-br from-red-600/20 to-orange-600/20 flex items-center justify-center relative">
-                    <span class="absolute top-2 right-2 px-2 py-1 bg-red-500/30 text-red-400 text-xs rounded">Legendary</span>
-                    <svg class="w-20 h-20 text-red-400/60" fill="currentColor" viewBox="0 0 24 24">
+            <!-- Dragon Sword -->
+            <div class="weapon-card card-hover rounded-2xl overflow-hidden border border-white/5" data-type="sword" data-element="fire" data-rarity="legendary">
+                <div class="h-44 bg-gradient-to-br from-red-900/40 to-obsidian-900 flex items-center justify-center relative">
+                    <div class="absolute top-3 right-3 px-3 py-1 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 border border-yellow-500/30 text-yellow-400 text-xs font-semibold rounded-full">Legendary</div>
+                    <svg class="w-24 h-24 text-red-500/20" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M14.5 2.5L2.5 14.5l3 3L17.5 5.5l-3-3zM22 22l-3-3 2.5-2.5L24.5 19l-2.5 3z"/>
                     </svg>
                 </div>
-                <div class="p-4">
-                    <div class="text-xs text-gold-400 uppercase tracking-wide mb-1">Sword</div>
-                    <h3 class="font-cinzel text-lg font-bold text-white mb-2">Dragon Sword</h3>
-                    <div class="flex flex-wrap gap-2 mb-3">
-                        <span class="px-2 py-1 bg-red-500/20 text-red-400 text-xs rounded flex items-center">
-                            <span class="w-2 h-2 bg-red-400 rounded-full mr-1"></span>Fire
-                        </span>
-                        <span class="px-2 py-1 bg-purple-500/20 text-purple-400 text-xs rounded">+20 ATK
-                        </span>
-                    </div>
-                    <div class="space-y-1 text-sm mb-4">
-                        <div class="flex justify-between text-gray-400">
-                            <span>Attack:</span><span class="text-white">85</span>
-                        </div>
-                        <div class="flex justify-between text-gray-400">
-                            <span>Speed:</span><span class="text-white">Fast</span>
-                        </div>
-                        <div class="flex justify-between text-gray-400">
-                            <span>Range:</span><span class="text-white">Short</span>
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs text-gold-400 uppercase tracking-wider font-semibold">Sword</span>
+                        <div class="flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                            <span class="text-red-400 text-xs font-medium">Fire</span>
                         </div>
                     </div>
-                    <div class="border-t border-gray-700 pt-3">
-                        <div class="text-xs text-gray-500 mb-1">Skills:</div>
-                        <p class="text-gray-300 text-xs">Dragon Fury, Fire Aura</p>
+                    <h3 class="font-cinzel text-xl font-bold text-white mb-4">Dragon Sword</h3>
+                    <div class="space-y-2 mb-4">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-500">Attack</span>
+                            <span class="text-white font-semibold">85</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-500">Speed</span>
+                            <span class="text-emerald-400 font-medium">Fast</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-500">Range</span>
+                            <span class="text-gray-400">Short</span>
+                        </div>
                     </div>
-                    <div class="mt-3 text-xs text-gray-500">
-                        <span class="text-emerald-400">★</span> How to Get: Complete Musou Mode on Hard
+                    <div class="border-t border-white/5 pt-4 mb-4">
+                        <div class="text-xs text-gray-500 mb-2">Skills</div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-red-500/10 text-red-400 text-xs rounded border border-red-500/20">Dragon Fury</span>
+                            <span class="px-2 py-1 bg-red-500/10 text-red-400 text-xs rounded border border-red-500/20">Fire Aura</span>
+                        </div>
+                    </div>
+                    <div class="text-xs text-gray-500 flex items-center gap-2">
+                        <svg class="w-4 h-4 text-gold-500" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        Complete Musou Mode on Hard
                     </div>
                 </div>
             </div>
 
-            <!-- Spear -->
-            <div class="weapon-card card-hover bg-gray-800/80 rounded-xl border border-gray-700 overflow-hidden" data-type="spear" data-element="ice" data-rarity="epic">
-                <div class="h-40 bg-gradient-to-br from-cyan-600/20 to-blue-600/20 flex items-center justify-center relative">
-                    <span class="absolute top-2 right-2 px-2 py-1 bg-purple-500/30 text-purple-400 text-xs rounded">Epic</span>
-                    <svg class="w-20 h-20 text-cyan-400/60" fill="currentColor" viewBox="0 0 24 24">
+            <!-- Serpent Spear -->
+            <div class="weapon-card card-hover rounded-2xl overflow-hidden border border-white/5" data-type="spear" data-element="ice" data-rarity="epic">
+                <div class="h-44 bg-gradient-to-br from-cyan-900/40 to-obsidian-900 flex items-center justify-center relative">
+                    <div class="absolute top-3 right-3 px-3 py-1 bg-gradient-to-r from-purple-500/20 to-purple-600/20 border border-purple-500/30 text-purple-400 text-xs font-semibold rounded-full">Epic</div>
+                    <svg class="w-24 h-24 text-cyan-500/20" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M12 2L4 7v10l8 5 8-5V7l-8-5z"/>
                     </svg>
                 </div>
-                <div class="p-4">
-                    <div class="text-xs text-gold-400 uppercase tracking-wide mb-1">Spear</div>
-                    <h3 class="font-cinzel text-lg font-bold text-white mb-2">Serpent Spear</h3>
-                    <div class="flex flex-wrap gap-2 mb-3">
-                        <span class="px-2 py-1 bg-cyan-500/20 text-cyan-400 text-xs rounded flex items-center">
-                            <span class="w-2 h-2 bg-cyan-400 rounded-full mr-1"></span>Ice
-                        </span>
-                        <span class="px-2 py-1 bg-purple-500/20 text-purple-400 text-xs rounded">+18 ATK</span>
-                    </div>
-                    <div class="space-y-1 text-sm mb-4">
-                        <div class="flex justify-between text-gray-400">
-                            <span>Attack:</span><span class="text-white">72</span>
-                        </div>
-                        <div class="flex justify-between text-gray-400">
-                            <span>Speed:</span><span class="text-white">Medium</span>
-                        </div>
-                        <div class="flex justify-between text-gray-400">
-                            <span>Range:</span><span class="text-white">Long</span>
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs text-gold-400 uppercase tracking-wider font-semibold">Spear</span>
+                        <div class="flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-cyan-500"></span>
+                            <span class="text-cyan-400 text-xs font-medium">Ice</span>
                         </div>
                     </div>
-                    <div class="border-t border-gray-700 pt-3">
-                        <div class="text-xs text-gray-500 mb-1">Skills:</div>
-                        <p class="text-gray-300 text-xs">Ice Strike, Frost Nova</p>
+                    <h3 class="font-cinzel text-xl font-bold text-white mb-4">Serpent Spear</h3>
+                    <div class="space-y-2 mb-4">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-500">Attack</span>
+                            <span class="text-white font-semibold">72</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-500">Speed</span>
+                            <span class="text-blue-400 font-medium">Medium</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-500">Range</span>
+                            <span class="text-emerald-400 font-medium">Long</span>
+                        </div>
                     </div>
-                    <div class="mt-3 text-xs text-gray-500">
-                        <span class="text-emerald-400">★</span> How to Get: Complete Guan Yu's path
+                    <div class="border-t border-white/5 pt-4 mb-4">
+                        <div class="text-xs text-gray-500 mb-2">Skills</div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-cyan-500/10 text-cyan-400 text-xs rounded border border-cyan-500/20">Ice Strike</span>
+                            <span class="px-2 py-1 bg-cyan-500/10 text-cyan-400 text-xs rounded border border-cyan-500/20">Frost Nova</span>
+                        </div>
+                    </div>
+                    <div class="text-xs text-gray-500 flex items-center gap-2">
+                        <svg class="w-4 h-4 text-gold-500" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        Complete Guan Yu's path
                     </div>
                 </div>
             </div>
 
-            <!-- Halberd -->
-            <div class="weapon-card card-hover bg-gray-800/80 rounded-xl border border-gray-700 overflow-hidden" data-type="halberd" data-element="lightning" data-rarity="epic">
-                <div class="h-40 bg-gradient-to-br from-yellow-600/20 to-amber-600/20 flex items-center justify-center relative">
-                    <span class="absolute top-2 right-2 px-2 py-1 bg-purple-500/30 text-purple-400 text-xs rounded">Epic</span>
-                    <svg class="w-20 h-20 text-yellow-400/60" fill="currentColor" viewBox="0 0 24 24">
+            <!-- Sky Melder -->
+            <div class="weapon-card card-hover rounded-2xl overflow-hidden border border-white/5" data-type="halberd" data-element="lightning" data-rarity="epic">
+                <div class="h-44 bg-gradient-to-br from-yellow-900/40 to-obsidian-900 flex items-center justify-center relative">
+                    <div class="absolute top-3 right-3 px-3 py-1 bg-gradient-to-r from-purple-500/20 to-purple-600/20 border border-purple-500/30 text-purple-400 text-xs font-semibold rounded-full">Epic</div>
+                    <svg class="w-24 h-24 text-yellow-500/20" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M12 2l3 6 6 1-4 4 1 7-6-3-6 3 1-7-4-4 6-1z"/>
                     </svg>
                 </div>
-                <div class="p-4">
-                    <div class="text-xs text-gold-400 uppercase tracking-wide mb-1">Halberd</div>
-                    <h3 class="font-cinzel text-lg font-bold text-white mb-2">Sky Melder</h3>
-                    <div class="flex flex-wrap gap-2 mb-3">
-                        <span class="px-2 py-1 bg-yellow-500/20 text-yellow-400 text-xs rounded flex items-center">
-                            <span class="w-2 h-2 bg-yellow-400 rounded-full mr-1"></span>Lightning
-                        </span>
-                        <span class="px-2 py-1 bg-purple-500/20 text-purple-400 text-xs rounded">+22 ATK</span>
-                    </div>
-                    <div class="space-y-1 text-sm mb-4">
-                        <div class="flex justify-between text-gray-400">
-                            <span>Attack:</span><span class="text-white">88</span>
-                        </div>
-                        <div class="flex justify-between text-gray-400">
-                            <span>Speed:</span><span class="text-white">Slow</span>
-                        </div>
-                        <div class="flex justify-between text-gray-400">
-                            <span>Range:</span><span class="text-white">Medium</span>
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs text-gold-400 uppercase tracking-wider font-semibold">Halberd</span>
+                        <div class="flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                            <span class="text-yellow-400 text-xs font-medium">Lightning</span>
                         </div>
                     </div>
-                    <div class="border-t border-gray-700 pt-3">
-                        <div class="text-xs text-gray-500 mb-1">Skills:</div>
-                        <p class="text-gray-300 text-xs">Thunder Strike, Chain Lightning</p>
+                    <h3 class="font-cinzel text-xl font-bold text-white mb-4">Sky Melder</h3>
+                    <div class="space-y-2 mb-4">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-500">Attack</span>
+                            <span class="text-white font-semibold">88</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-500">Speed</span>
+                            <span class="text-orange-400 font-medium">Slow</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-500">Range</span>
+                            <span class="text-blue-400 font-medium">Medium</span>
+                        </div>
                     </div>
-                    <div class="mt-3 text-xs text-gray-500">
-                        <span class="text-emerald-400">★</span> How to Get: Fusion recipe
+                    <div class="border-t border-white/5 pt-4 mb-4">
+                        <div class="text-xs text-gray-500 mb-2">Skills</div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-yellow-500/10 text-yellow-400 text-xs rounded border border-yellow-500/20">Thunder Strike</span>
+                            <span class="px-2 py-1 bg-yellow-500/10 text-yellow-400 text-xs rounded border border-yellow-500/20">Chain Lightning</span>
+                        </div>
+                    </div>
+                    <div class="text-xs text-gray-500 flex items-center gap-2">
+                        <svg class="w-4 h-4 text-gold-500" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        Fusion recipe
                     </div>
                 </div>
             </div>
 
-            <!-- Bow -->
-            <div class="weapon-card card-hover bg-gray-800/80 rounded-xl border border-gray-700 overflow-hidden" data-type="bow" data-element="wind" data-rarity="rare">
-                <div class="h-40 bg-gradient-to-br from-emerald-600/20 to-teal-600/20 flex items-center justify-center relative">
-                    <span class="absolute top-2 right-2 px-2 py-1 bg-blue-500/30 text-blue-400 text-xs rounded">Rare</span>
-                    <svg class="w-20 h-20 text-emerald-400/60" fill="currentColor" viewBox="0 0 24 24">
+            <!-- Wind Bow -->
+            <div class="weapon-card card-hover rounded-2xl overflow-hidden border border-white/5" data-type="bow" data-element="wind" data-rarity="rare">
+                <div class="h-44 bg-gradient-to-br from-emerald-900/40 to-obsidian-900 flex items-center justify-center relative">
+                    <div class="absolute top-3 right-3 px-3 py-1 bg-gradient-to-r from-blue-500/20 to-blue-600/20 border border-blue-500/30 text-blue-400 text-xs font-semibold rounded-full">Rare</div>
+                    <svg class="w-24 h-24 text-emerald-500/20" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                     </svg>
                 </div>
-                <div class="p-4">
-                    <div class="text-xs text-gold-400 uppercase tracking-wide mb-1">Bow</div>
-                    <h3 class="font-cinzel text-lg font-bold text-white mb-2">Wind Bow</h3>
-                    <div class="flex flex-wrap gap-2 mb-3">
-                        <span class="px-2 py-1 bg-emerald-500/20 text-emerald-400 text-xs rounded flex items-center">
-                            <span class="w-2 h-2 bg-emerald-400 rounded-full mr-1"></span>Wind
-                        </span>
-                        <span class="px-2 py-1 bg-purple-500/20 text-purple-400 text-xs rounded">+12 ATK</span>
-                    </div>
-                    <div class="space-y-1 text-sm mb-4">
-                        <div class="flex justify-between text-gray-400">
-                            <span>Attack:</span><span class="text-white">45</span>
-                        </div>
-                        <div class="flex justify-between text-gray-400">
-                            <span>Speed:</span><span class="text-white">Very Fast</span>
-                        </div>
-                        <div class="flex justify-between text-gray-400">
-                            <span>Range:</span><span class="text-white">Very Long</span>
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs text-gold-400 uppercase tracking-wider font-semibold">Bow</span>
+                        <div class="flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+                            <span class="text-emerald-400 text-xs font-medium">Wind</span>
                         </div>
                     </div>
-                    <div class="border-t border-gray-700 pt-3">
-                        <div class="text-xs text-gray-500 mb-1">Skills:</div>
-                        <p class="text-gray-300 text-xs">Wind Shot, Gale Arrow</p>
+                    <h3 class="font-cinzel text-xl font-bold text-white mb-4">Wind Bow</h3>
+                    <div class="space-y-2 mb-4">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-500">Attack</span>
+                            <span class="text-white font-semibold">45</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-500">Speed</span>
+                            <span class="text-purple-400 font-medium">Very Fast</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-500">Range</span>
+                            <span class="text-emerald-400 font-medium">Very Long</span>
+                        </div>
                     </div>
-                    <div class="mt-3 text-xs text-gray-500">
-                        <span class="text-emerald-400">★</span> How to Get: Item Shop
+                    <div class="border-t border-white/5 pt-4 mb-4">
+                        <div class="text-xs text-gray-500 mb-2">Skills</div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-emerald-500/10 text-emerald-400 text-xs rounded border border-emerald-500/20">Wind Shot</span>
+                            <span class="px-2 py-1 bg-emerald-500/10 text-emerald-400 text-xs rounded border border-emerald-500/20">Gale Arrow</span>
+                        </div>
+                    </div>
+                    <div class="text-xs text-gray-500 flex items-center gap-2">
+                        <svg class="w-4 h-4 text-gold-500" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        Item Shop
                     </div>
                 </div>
             </div>
 
-            <!-- Axe -->
-            <div class="weapon-card card-hover bg-gray-800/80 rounded-xl border border-gray-700 overflow-hidden" data-type="axe" data-element="fire" data-rarity="rare">
-                <div class="h-40 bg-gradient-to-br from-orange-600/20 to-red-600/20 flex items-center justify-center relative">
-                    <span class="absolute top-2 right-2 px-2 py-1 bg-blue-500/30 text-blue-400 text-xs rounded">Rare</span>
-                    <svg class="w-20 h-20 text-orange-400/60" fill="currentColor" viewBox="0 0 24 24">
+            <!-- Inferno Axe -->
+            <div class="weapon-card card-hover rounded-2xl overflow-hidden border border-white/5" data-type="axe" data-element="fire" data-rarity="rare">
+                <div class="h-44 bg-gradient-to-br from-orange-900/40 to-obsidian-900 flex items-center justify-center relative">
+                    <div class="absolute top-3 right-3 px-3 py-1 bg-gradient-to-r from-blue-500/20 to-blue-600/20 border border-blue-500/30 text-blue-400 text-xs font-semibold rounded-full">Rare</div>
+                    <svg class="w-24 h-24 text-orange-500/20" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M8 2l-6 6 4 4-8 8 4 4 8-8 4 4 6-6-10-8z"/>
                     </svg>
                 </div>
-                <div class="p-4">
-                    <div class="text-xs text-gold-400 uppercase tracking-wide mb-1">Axe</div>
-                    <h3 class="font-cinzel text-lg font-bold text-white mb-2">Inferno Axe</h3>
-                    <div class="flex flex-wrap gap-2 mb-3">
-                        <span class="px-2 py-1 bg-red-500/20 text-red-400 text-xs rounded flex items-center">
-                            <span class="w-2 h-2 bg-red-400 rounded-full mr-1"></span>Fire
-                        </span>
-                        <span class="px-2 py-1 bg-purple-500/20 text-purple-400 text-xs rounded">+25 ATK</span>
-                    </div>
-                    <div class="space-y-1 text-sm mb-4">
-                        <div class="flex justify-between text-gray-400">
-                            <span>Attack:</span><span class="text-white">95</span>
-                        </div>
-                        <div class="flex justify-between text-gray-400">
-                            <span>Speed:</span><span class="text-white">Very Slow</span>
-                        </div>
-                        <div class="flex justify-between text-gray-400">
-                            <span>Range:</span><span class="text-white">Short</span>
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs text-gold-400 uppercase tracking-wider font-semibold">Axe</span>
+                        <div class="flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                            <span class="text-red-400 text-xs font-medium">Fire</span>
                         </div>
                     </div>
-                    <div class="border-t border-gray-700 pt-3">
-                        <div class="text-xs text-gray-500 mb-1">Skills:</div>
-                        <p class="text-gray-300 text-xs">Flame Cleave, Burn Wave</p>
+                    <h3 class="font-cinzel text-xl font-bold text-white mb-4">Inferno Axe</h3>
+                    <div class="space-y-2 mb-4">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-500">Attack</span>
+                            <span class="text-white font-semibold">95</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-500">Speed</span>
+                            <span class="text-red-400 font-medium">Very Slow</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-500">Range</span>
+                            <span class="text-gray-400">Short</span>
+                        </div>
                     </div>
-                    <div class="mt-3 text-xs text-gray-500">
-                        <span class="text-emerald-400">★</span> How to Get: Defeat Lu Bu
+                    <div class="border-t border-white/5 pt-4 mb-4">
+                        <div class="text-xs text-gray-500 mb-2">Skills</div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-red-500/10 text-red-400 text-xs rounded border border-red-500/20">Flame Cleave</span>
+                            <span class="px-2 py-1 bg-red-500/10 text-red-400 text-xs rounded border border-red-500/20">Burn Wave</span>
+                        </div>
+                    </div>
+                    <div class="text-xs text-gray-500 flex items-center gap-2">
+                        <svg class="w-4 h-4 text-gold-500" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        Defeat Lu Bu
                     </div>
                 </div>
             </div>
 
-            <!-- Naginata -->
-            <div class="weapon-card card-hover bg-gray-800/80 rounded-xl border border-gray-700 overflow-hidden" data-type="naginata" data-element="wind" data-rarity="rare">
-                <div class="h-40 bg-gradient-to-br from-pink-600/20 to-rose-600/20 flex items-center justify-center relative">
-                    <span class="absolute top-2 right-2 px-2 py-1 bg-blue-500/30 text-blue-400 text-xs rounded">Rare</span>
-                    <svg class="w-20 h-20 text-pink-400/60" fill="currentColor" viewBox="0 0 24 24">
+            <!-- Crescent Blade -->
+            <div class="weapon-card card-hover rounded-2xl overflow-hidden border border-white/5" data-type="naginata" data-element="wind" data-rarity="rare">
+                <div class="h-44 bg-gradient-to-br from-pink-900/40 to-obsidian-900 flex items-center justify-center relative">
+                    <div class="absolute top-3 right-3 px-3 py-1 bg-gradient-to-r from-blue-500/20 to-blue-600/20 border border-blue-500/30 text-blue-400 text-xs font-semibold rounded-full">Rare</div>
+                    <svg class="w-24 h-24 text-pink-500/20" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M3 21l9-9m0 0l9-9m-9 9l-6 6m6-6l6 6"/>
                     </svg>
                 </div>
-                <div class="p-4">
-                    <div class="text-xs text-gold-400 uppercase tracking-wide mb-1">Naginata</div>
-                    <h3 class="font-cinzel text-lg font-bold text-white mb-2">Crescent Blade</h3>
-                    <div class="flex flex-wrap gap-2 mb-3">
-                        <span class="px-2 py-1 bg-emerald-500/20 text-emerald-400 text-xs rounded flex items-center">
-                            <span class="w-2 h-2 bg-emerald-400 rounded-full mr-1"></span>Wind
-                        </span>
-                        <span class="px-2 py-1 bg-purple-500/20 text-purple-400 text-xs rounded">+16 ATK</span>
-                    </div>
-                    <div class="space-y-1 text-sm mb-4">
-                        <div class="flex justify-between text-gray-400">
-                            <span>Attack:</span><span class="text-white">65</span>
-                        </div>
-                        <div class="flex justify-between text-gray-400">
-                            <span>Speed:</span><span class="text-white">Medium</span>
-                        </div>
-                        <div class="flex justify-between text-gray-400">
-                            <span>Range:</span><span class="text-white">Long</span>
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs text-gold-400 uppercase tracking-wider font-semibold">Naginata</span>
+                        <div class="flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+                            <span class="text-emerald-400 text-xs font-medium">Wind</span>
                         </div>
                     </div>
-                    <div class="border-t border-gray-700 pt-3">
-                        <div class="text-xs text-gray-500 mb-1">Skills:</div>
-                        <p class="text-gray-300 text-xs">Spin Strike, Wind Dance</p>
+                    <h3 class="font-cinzel text-xl font-bold text-white mb-4">Crescent Blade</h3>
+                    <div class="space-y-2 mb-4">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-500">Attack</span>
+                            <span class="text-white font-semibold">65</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-500">Speed</span>
+                            <span class="text-blue-400 font-medium">Medium</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-500">Range</span>
+                            <span class="text-emerald-400 font-medium">Long</span>
+                        </div>
                     </div>
-                    <div class="mt-3 text-xs text-gray-500">
-                        <span class="text-emerald-400">★</span> How to Get: Complete Dong Zhuo's path
+                    <div class="border-t border-white/5 pt-4 mb-4">
+                        <div class="text-xs text-gray-500 mb-2">Skills</div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-emerald-500/10 text-emerald-400 text-xs rounded border border-emerald-500/20">Spin Strike</span>
+                            <span class="px-2 py-1 bg-emerald-500/10 text-emerald-400 text-xs rounded border border-emerald-500/20">Wind Dance</span>
+                        </div>
+                    </div>
+                    <div class="text-xs text-gray-500 flex items-center gap-2">
+                        <svg class="w-4 h-4 text-gold-500" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        Complete Dong Zhuo's path
                     </div>
                 </div>
             </div>
 
-            <!-- Club -->
-            <div class="weapon-card card-hover bg-gray-800/80 rounded-xl border border-gray-700 overflow-hidden" data-type="club" data-element="none" data-rarity="common">
-                <div class="h-40 bg-gradient-to-br from-gray-600/20 to-gray-700/20 flex items-center justify-center relative">
-                    <span class="absolute top-2 right-2 px-2 py-1 bg-gray-500/30 text-gray-400 text-xs rounded">Common</span>
-                    <svg class="w-20 h-20 text-gray-400/60" fill="currentColor" viewBox="0 0 24 24">
+            <!-- Iron Hammer -->
+            <div class="weapon-card card-hover rounded-2xl overflow-hidden border border-white/5" data-type="club" data-element="none" data-rarity="common">
+                <div class="h-44 bg-gradient-to-br from-gray-800/40 to-obsidian-900 flex items-center justify-center relative">
+                    <div class="absolute top-3 right-3 px-3 py-1 bg-gradient-to-r from-gray-500/20 to-gray-600/20 border border-gray-500/30 text-gray-400 text-xs font-semibold rounded-full">Common</div>
+                    <svg class="w-24 h-24 text-gray-500/20" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M4 4h16v4H4zM6 8h12v4H6zM8 12h8v4H8zM10 16h4v4h-4z"/>
                     </svg>
                 </div>
-                <div class="p-4">
-                    <div class="text-xs text-gold-400 uppercase tracking-wide mb-1">Club</div>
-                    <h3 class="font-cinzel text-lg font-bold text-white mb-2">Iron Hammer</h3>
-                    <div class="flex flex-wrap gap-2 mb-3">
-                        <span class="px-2 py-1 bg-gray-500/20 text-gray-400 text-xs rounded">No Element</span>
-                        <span class="px-2 py-1 bg-purple-500/20 text-purple-400 text-xs rounded">+10 ATK</span>
-                    </div>
-                    <div class="space-y-1 text-sm mb-4">
-                        <div class="flex justify-between text-gray-400">
-                            <span>Attack:</span><span class="text-white">35</span>
-                        </div>
-                        <div class="flex justify-between text-gray-400">
-                            <span>Speed:</span><span class="text-white">Slow</span>
-                        </div>
-                        <div class="flex justify-between text-gray-400">
-                            <span>Range:</span><span class="text-white">Short</span>
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs text-gold-400 uppercase tracking-wider font-semibold">Club</span>
+                        <div class="flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-gray-500"></span>
+                            <span class="text-gray-400 text-xs font-medium">None</span>
                         </div>
                     </div>
-                    <div class="border-t border-gray-700 pt-3">
-                        <div class="text-xs text-gray-500 mb-1">Skills:</div>
-                        <p class="text-gray-300 text-xs">Ground Pound</p>
+                    <h3 class="font-cinzel text-xl font-bold text-white mb-4">Iron Hammer</h3>
+                    <div class="space-y-2 mb-4">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-500">Attack</span>
+                            <span class="text-white font-semibold">35</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-500">Speed</span>
+                            <span class="text-orange-400 font-medium">Slow</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-500">Range</span>
+                            <span class="text-gray-400">Short</span>
+                        </div>
                     </div>
-                    <div class="mt-3 text-xs text-gray-500">
-                        <span class="text-emerald-400">★</span> How to Get: Starting weapon
+                    <div class="border-t border-white/5 pt-4 mb-4">
+                        <div class="text-xs text-gray-500 mb-2">Skills</div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-gray-500/10 text-gray-400 text-xs rounded border border-gray-500/20">Ground Pound</span>
+                        </div>
+                    </div>
+                    <div class="text-xs text-gray-500 flex items-center gap-2">
+                        <svg class="w-4 h-4 text-gold-500" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        Starting weapon
                     </div>
                 </div>
             </div>
 
-            <!-- Sword 2 -->
-            <div class="weapon-card card-hover bg-gray-800/80 rounded-xl border border-gray-700 overflow-hidden" data-type="sword" data-element="lightning" data-rarity="epic">
-                <div class="h-40 bg-gradient-to-br from-yellow-600/20 to-blue-600/20 flex items-center justify-center relative">
-                    <span class="absolute top-2 right-2 px-2 py-1 bg-purple-500/30 text-purple-400 text-xs rounded">Epic</span>
-                    <svg class="w-20 h-20 text-yellow-400/60" fill="currentColor" viewBox="0 0 24 24">
+            <!-- Storm Blade -->
+            <div class="weapon-card card-hover rounded-2xl overflow-hidden border border-white/5" data-type="sword" data-element="lightning" data-rarity="epic">
+                <div class="h-44 bg-gradient-to-br from-yellow-900/40 to-blue-900/40 flex items-center justify-center relative">
+                    <div class="absolute top-3 right-3 px-3 py-1 bg-gradient-to-r from-purple-500/20 to-purple-600/20 border border-purple-500/30 text-purple-400 text-xs font-semibold rounded-full">Epic</div>
+                    <svg class="w-24 h-24 text-yellow-500/20" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M14.5 2.5L2.5 14.5l3 3L17.5 5.5l-3-3zM22 22l-3-3 2.5-2.5L24.5 19l-2.5 3z"/>
                     </svg>
                 </div>
-                <div class="p-4">
-                    <div class="text-xs text-gold-400 uppercase tracking-wide mb-1">Sword</div>
-                    <h3 class="font-cinzel text-lg font-bold text-white mb-2">Storm Blade</h3>
-                    <div class="flex flex-wrap gap-2 mb-3">
-                        <span class="px-2 py-1 bg-yellow-500/20 text-yellow-400 text-xs rounded flex items-center">
-                            <span class="w-2 h-2 bg-yellow-400 rounded-full mr-1"></span>Lightning
-                        </span>
-                        <span class="px-2 py-1 bg-purple-500/20 text-purple-400 text-xs rounded">+18 ATK</span>
-                    </div>
-                    <div class="space-y-1 text-sm mb-4">
-                        <div class="flex justify-between text-gray-400">
-                            <span>Attack:</span><span class="text-white">78</span>
-                        </div>
-                        <div class="flex justify-between text-gray-400">
-                            <span>Speed:</span><span class="text-white">Fast</span>
-                        </div>
-                        <div class="flex justify-between text-gray-400">
-                            <span>Range:</span><span class="text-white">Short</span>
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs text-gold-400 uppercase tracking-wider font-semibold">Sword</span>
+                        <div class="flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                            <span class="text-yellow-400 text-xs font-medium">Lightning</span>
                         </div>
                     </div>
-                    <div class="border-t border-gray-700 pt-3">
-                        <div class="text-xs text-gray-500 mb-1">Skills:</div>
-                        <p class="text-gray-300 text-xs">Thunder Slash, Static Field</p>
+                    <h3 class="font-cinzel text-xl font-bold text-white mb-4">Storm Blade</h3>
+                    <div class="space-y-2 mb-4">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-500">Attack</span>
+                            <span class="text-white font-semibold">78</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-500">Speed</span>
+                            <span class="text-emerald-400 font-medium">Fast</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-500">Range</span>
+                            <span class="text-gray-400">Short</span>
+                        </div>
                     </div>
-                    <div class="mt-3 text-xs text-gray-500">
-                        <span class="text-emerald-400">★</span> How to Get: Complete Wei's path
+                    <div class="border-t border-white/5 pt-4 mb-4">
+                        <div class="text-xs text-gray-500 mb-2">Skills</div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-yellow-500/10 text-yellow-400 text-xs rounded border border-yellow-500/20">Thunder Slash</span>
+                            <span class="px-2 py-1 bg-yellow-500/10 text-yellow-400 text-xs rounded border border-yellow-500/20">Static Field</span>
+                        </div>
+                    </div>
+                    <div class="text-xs text-gray-500 flex items-center gap-2">
+                        <svg class="w-4 h-4 text-gold-500" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        Complete Wei's path
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- Load More -->
-        <div class="text-center mt-12">
-            <p class="text-gray-500 mb-4">Showing 8 of 48 weapons</p>
-            <button class="px-8 py-3 bg-gray-800 border border-gray-700 text-gray-300 rounded-lg hover:bg-gray-700 hover:border-gray-600 transition-all">
+        <div class="text-center mt-16">
+            <p class="text-gray-500 mb-6">Showing 8 of 48 weapons</p>
+            <button class="btn-primary px-10 py-4 text-gold-400 font-semibold rounded-xl text-lg">
                 Load More Weapons
             </button>
         </div>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 border-t border-gray-800 py-12 mt-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row items-center justify-between">
-                <div class="flex items-center space-x-3 mb-4 md:mb-0">
-                    <div class="w-10 h-10 bg-gradient-to-br from-emerald-500 to-gold-500 rounded-lg flex items-center justify-center">
-                        <span class="font-cinzel font-bold text-white text-lg">DW</span>
+    <footer class="bg-obsidian-900 border-t border-white/5 py-16 mt-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-gold-500 to-gold-600 rounded-xl flex items-center justify-center">
+                            <span class="font-cinzel font-bold text-black text-lg">DW</span>
+                        </div>
+                        <div>
+                            <span class="font-cinzel font-bold text-xl text-white">DW3 Guide</span>
+                            <span class="block text-xs text-gold-500/70">Complete Remastered</span>
+                        </div>
                     </div>
-                    <span class="font-cinzel font-bold text-xl text-white">DW3 Guide</span>
+                    <p class="text-gray-400 text-sm">Your ultimate guide to Dynasty Warriors 3: Complete Edition Remastered.</p>
                 </div>
-                <div class="flex space-x-6 text-sm text-gray-400">
-                    <a href="/" class="hover:text-emerald-400">Home</a>
-                    <a href="weapons.html" class="hover:text-emerald-400">Weapons</a>
-                    <a href="fusion.html" class="hover:text-emerald-400">Weapon Fusion</a>
-                    <a href="characters.html" class="hover:text-emerald-400">Characters</a>
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Quick Links</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="/" class="text-gray-400 hover:text-gold-400 transition-colors">Home</a></li>
+                        <li><a href="weapons.html" class="text-gray-400 hover:text-gold-400 transition-colors">Weapons Database</a></li>
+                        <li><a href="fusion.html" class="text-gray-400 hover:text-gold-400 transition-colors">Weapon Fusion</a></li>
+                        <li><a href="characters.html" class="text-gray-400 hover:text-gold-400 transition-colors">Characters</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Resources</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="text-gray-400 hover:text-gold-400 transition-colors">Official Site</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-gold-400 transition-colors">Steam Page</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-gold-400 transition-colors">KOEI TECMO</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Legal</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="text-gray-400 hover:text-gold-400 transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-gold-400 transition-colors">Terms of Use</a></li>
+                    </ul>
+                    <p class="text-gray-600 text-xs mt-4">Not affiliated with KOEI TECMO.</p>
                 </div>
             </div>
-            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500 text-sm">
-                <p>&copy; 2026 Dynasty Warriors 3 Guide. Not affiliated with KOEI TECMO.</p>
+            <div class="divider mb-8"></div>
+            <div class="text-center text-gray-500 text-sm">
+                <p>&copy; 2026 Dynasty Warriors 3 Guide. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -489,7 +689,6 @@
         const mobileMenu = document.getElementById('mobile-menu');
         mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
 
-        // Filter functionality
         const typeFilter = document.getElementById('type-filter');
         const elementFilter = document.getElementById('element-filter');
         const rarityFilter = document.getElementById('rarity-filter');
@@ -511,8 +710,10 @@
 
                 if (typeMatch && elementMatch && rarityMatch) {
                     card.classList.remove('hidden');
+                    card.style.display = '';
                 } else {
                     card.classList.add('hidden');
+                    card.style.display = 'none';
                 }
             });
         }
