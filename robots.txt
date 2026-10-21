@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://dynastywarriors3guide.com/sitemap.xml
